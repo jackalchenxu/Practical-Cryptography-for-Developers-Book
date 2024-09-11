@@ -24,7 +24,7 @@ The **public keys** in the ECC are **EC points** - pairs of integer coordinates 
 
 ## ECC Algorithms
 
-**Elliptic-curve cryptography** (ECC) provides several groups of algorithms, based on the math of the elliptic curves over finite fields:
+**Elliptic-curve cryptography** (ECC) provides several groups of algorithms, based on the math of the elliptic curves over finite fields:over the finite prime field 
 
 * ECC **digital signature** algorithms like [**ECDSA**](https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm) (for classical curves) and [**EdDSA**](https://en.wikipedia.org/wiki/EdDSA) (for twisted Edwards curves).
 * ECC **encryption** algorithms and hybrid encryption schemes like the [**ECIES**](https://en.wikipedia.org/wiki/Integrated\_Encryption\_Scheme) integrated encryption scheme and [**EEECC**](https://cse.unl.edu/\~ssamal/crypto/EEECC.pdf) (EC-based ElGamal).
@@ -537,17 +537,17 @@ With carefully selected curve parameters, the **Edwards curves over finite field
 
 For example, the [`Curve25519`](https://en.wikipedia.org/wiki/Curve25519) is the **Edwards curve**, defined by the following elliptic curve equation in [**Montgomery form**](https://en.wikipedia.org/wiki/Montgomery\_curve):
 
-* y2 = x3 + \_**486662**\_x2 + x
+$y^2 = x^3 + 486662*x^2 + x$
 
-over the finite prime field **𝔽p**, where _**p**_ = 2255 - 19 (the curve is 255-bit).
+over the finite prime field **𝔽p**, where _**p**_ = $2^{255} - 19$ (the curve is 255-bit).
 
 In fact, the above equation does not match directly the Edwards curve equation, but it is proven to be birationally equivalent to the following **twisted Edwards curve** (known as **edwards25519**):
 
-* \-x2 + y2 = 1 + \_**37095705934669439343138083508754565189542113879843219016388785533085940283555**\_x2y2
+* $-x^2 + y^2 = 1 + 37095705934669439343138083508754565189542113879843219016388785533085940283555*x^2y^2$
 
 The elliptic curve **Curve25519** consists of all points {**x**, **y**} with integer coordinates, defined by the modular equation:
 
-* y2 ≡ x3 + \_**486662**\_x2 + x (mod _**2255 - 19**_)
+* $y^2 ≡ x^3 + 486662*x^2 + x$ (mod $2^{255} - 19$)
 
 The above equation has its equivalent in the classical **Weierstrass form** for the elliptic curves (y2 = x3 + \_**a**\_x + _**b**_), but the above form is designed especially for speed optimizations.
 
